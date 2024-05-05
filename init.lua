@@ -1,7 +1,3 @@
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- Install package manager
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -16,8 +12,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("plugins")
+-- Note: this order matters. "plugins" relies on the leader key being set, and some keymaps require the plugins to have already been required.
 require("sets")
+require("plugins")
 require("keymaps")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
