@@ -9,6 +9,9 @@ local debug_plugins = {
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
+    -- some dependency, idk what it's for
+    'nvim-neotest/nvim-nio',
+
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
   },
@@ -62,7 +65,7 @@ local debug_plugins = {
           step_out = '⏮',
           step_back = 'b',
           run_last = '▶▶',
-          terminate = '⏹',
+          terminate = ⏹,
           disconnect = '⏏',
         },
       },
@@ -118,6 +121,9 @@ local editor_plugins = {
 
   -- useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
+
+  -- vim surround
+  { 'tpope/vim-surround' },
 
   -- colorscheme
   {
@@ -206,9 +212,9 @@ local lsp_plugins = {
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
-      -- snippet engine & its associated nvim-cmp source
+      -- -- snippet engine & its associated nvim-cmp source
       'l3mon4d3/luasnip',
-      'saadparwaiz1/cmp_luasnip',
+      -- 'saadparwaiz1/cmp_luasnip',
 
       -- adds lsp completion capabilities
       'hrsh7th/cmp-nvim-lsp',
@@ -320,7 +326,7 @@ local navigation_plugins = {
     },
     config = function()
       require('neo-tree').setup {}
-    end,
+    end
   },
 
   -- fuzzy finder (files, lsp, etc)
@@ -394,7 +400,7 @@ local treesitter_plugins = {
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    build = ':tsupdate',
+    build = ':TSUpdate',
   },
 
   { 'nvim-treesitter/nvim-treesitter-context' },

@@ -42,3 +42,8 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- indents
+vim.opt.tabstop = 8 -- this is always 8 or something...
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
