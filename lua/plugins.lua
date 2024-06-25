@@ -125,6 +125,27 @@ local editor_plugins = {
   -- vim surround
   { 'tpope/vim-surround' },
 
+  { 'tpope/vim-repeat' },
+
+  { 'Konfekt/vim-CtrlXA' },
+
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      -- vim.keymap.del('n', 's')
+      -- vim.keymap.del('n', 'S')
+      require('leap').create_default_mappings()
+      -- vim.keymap.set('n', 's', '<Plug>(leap-forward)')
+      -- vim.keymap.set('n', 'S', '<Plug>(leap-backward)')
+    end
+  },
+
+  { 'jinh0/eyeliner.nvim' },
+
+  { 'mg979/vim-visual-multi' },
+
+
+
   -- colorscheme
   {
     'ellisonleao/gruvbox.nvim',
@@ -360,7 +381,15 @@ local navigation_plugins = {
             },
           },
         },
+        pickers = {
+          find_files = {
+            hidden = true
+          }
+        }
       })
+
+
+      -- require.('telescope.builtin').find_files({hidden = true})
 
       -- Enable telescope fzf native, if installed
       pcall(require('telescope').load_extension, 'fzf')
@@ -377,13 +406,13 @@ local navigation_plugins = {
         })
       end, { desc = '[/] fuzzily search in current buffer' })
 
-      vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'search [g]it [f]iles' })
-      vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[s]earch [f]iles' })
-      vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[s]earch [h]elp' })
-      vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[s]earch current [w]ord' })
-      vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[s]earch by [g]rep' })
+      --vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'search [g]it [f]iles' })
       vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[s]earch [d]iagnostics' })
+      vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[s]earch [f]iles' })
+      vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[s]earch by [g]rep' })
+      vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[s]earch [h]elp' })
       vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[s]earch [r]esume' })
+      vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[s]earch current [w]ord' })
     end
 
 
